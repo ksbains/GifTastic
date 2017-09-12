@@ -1,9 +1,73 @@
     button,
     div,
     form,
+    h1,
     input {
-      margin: 10px;
+      text-align: center;
+    }
+    body{
+    	background: #800000;
     }
     .gif{
-    	display: inline;
+    	display: block;
+    	border-style: groove;
+    	border-width: 5px;
+    	border-color: black;
+    	background-color: #708090;
+    	max-width: 800px;
+    	margin: 2%;
     }
+    form{
+    	float: left;
+    }
+    
+    div p{
+    	color: white;
+    }
+
+    img{
+    	margin-bottom: 5%;
+    }
+    header{
+    	background-color: #708090;
+    	color: white;
+    	padding-top: 2%;
+    	padding-bottom:2%;
+    	width: 100%;
+    	border-style: solid;
+    	border-width: 3px;
+    	border-color: black;
+    }
+    #animalSel{
+    	background-color: #708090;
+    	padding: 2%;
+    	border-style: solid;
+    	border-width: 2px;
+    	border-color: black;
+    	margin-right: 1%;
+    	margin-top: 1%;
+    	
+    }
+    label{
+    	color: black;
+    }
+    input{
+    	margin-top: 2px;
+    	margin-bottom: 2px;
+    }
+    form{
+    	background: #708090;
+    	padding-bottom: 1%;
+    	padding-top: 1%;
+    	border-style: solid;
+    	border-width: 2px;
+    	border-color: black;
+    	margin-top: 1%; 
+    	max-width: 400px;
+    }
+    button{
+    	margin: 5px;
+    	border-style: solid;
+    	border-width: 1px;
+    	border-color: black;
+    } 

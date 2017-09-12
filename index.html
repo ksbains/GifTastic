@@ -10,22 +10,30 @@
    
   </head>
 
-  <body>
-    <div id="animalSel">
-      
+  <body >
+  <header>
+    <h1>GifTastic</h1>
+  </header>
+  <div class="container">
+    <div class = "row">
+      <div id="animalSel" class="col-sm-9" >
+        
+      </div>
+
+      <form class = "col-sm-4">
+        <label for="animal-input">Search a Gif</label>
+        <input type="text" id="animal-input" placeholder="enter gif name" name=""></input><br/>
+
+        <input id="addAnimal" type="submit" value="Submit" >
+      </form>
     </div>
-
-    <form>
-      <label for="animal-input">Add an animal</label>
-      <input type="text" id="animal-input" name=""></input><br/>
-
-      <input id="addAnimal" type="submit" value="Submit" >
-    </form>
-
-    <div id="animals">
-      
+    <div class="row">
+      <div id="animals" class="col-md-12">
+        
+      </div>
     </div>
-    
+  </div>
+      
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <script src="./assets/javascript/app.js"></script>
   </body>

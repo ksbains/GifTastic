@@ -11,7 +11,7 @@ function switcharoo(boolean){
     //img = gif;
   }
 }
-var gifs = ["hamster", "wolf", "cobra", "lion"];
+var gifs = ["spongebob"];
 
 // displayGifInfo function re-renders the HTML to display the appropriate content
 
@@ -20,11 +20,11 @@ function displayGifInfo() {
   var gif = $(this).attr("data-name");
   var api = "http://api.giphy.com/v1/gifs/search";
   var apikey = "?api_key=91dfe01af7b44084849de62f68879b83";
-  var query = "&q=" + gif + "&limit=25&offset=0&rating=G&lang=en";
+  var query = "&q=" + gif + "&limit=10&offset=0&rating=G&lang=en";
   //Q:need to diplay the original still and then upon click diplay the gif and vice vera?
   //A: have a bolean that ill itch from true to fale everytime time it i clicked, on true it i the original till, on fale it i the gif url.
   var queryURL = api + apikey + query;
-  console.log(queryURL);
+ // console.log(queryURL);
   //queryURL = "http://api.giphy.com/v1/gifs/search?api_key=91dfe01af7b44084849de62f68879b83&q=hamster&limit=10&offset=0&rating=Y&lang=en";
 
   // Creating an AJAX call for the specific movie button being clicked
@@ -114,7 +114,7 @@ $("#addAnimal").on("click", function(event) {
   event.preventDefault();
   // This line grabs the input from the textbox
   var gif = $("#animal-input").val().trim();
-
+  gif = gif.toLowerCase();
   // Adding movie from the textbox to our array
   if(!gifs.includes(gif)){
     gifs.push(gif);
