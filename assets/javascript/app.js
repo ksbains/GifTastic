@@ -1,12 +1,20 @@
 function switcharoo(boolean){
   if(boolean){
-    //
-
+    //change the boolean, but it needs to be out of this scope
+    boolean = !boolean;
+    //when it is true then display the still
+    //select img
+    //this??
+    //img = still
+  }else{
+    boolean = !boolean;
+    //img = gif;
   }
 }
 var gifs = ["hamster", "wolf", "cobra", "lion"];
 
 // displayGifInfo function re-renders the HTML to display the appropriate content
+
 function displayGifInfo() {
 
   var gif = $(this).attr("data-name");
@@ -53,12 +61,16 @@ function displayGifInfo() {
 
       // Retrieving the URL for the image
       var imgURL = response.data[i].images.original_still.url;
-      console.log("the first itme: " + imgURL);
+  
       imgURL = imgURL.substr(5);
-      console.log("the second time: " + imgURL);
+  
       imgURL = "http" + imgURL;
       // Creating an element to hold the image
       var image = $("<img>").attr("src", imgURL);
+      image.attr("data-animate", "false");
+      image.attr("data-switchURL", response.data[i].images.original.url);
+      image.addClass("pic");
+
 
       // Appending the image
       gifDiv.append(image);
@@ -104,7 +116,11 @@ $("#addAnimal").on("click", function(event) {
   var gif = $("#animal-input").val().trim();
 
   // Adding movie from the textbox to our array
-  gifs.push(gif);
+  if(!gifs.includes(gif)){
+    gifs.push(gif);
+  }
+  $("#animal-input").val('');
+
 
   // Calling renderButtons which handles the processing of our movie array
   renderButtons();
@@ -113,6 +129,31 @@ $("#addAnimal").on("click", function(event) {
 //https://www.youtube.com/watch?v=fEYx8dQr_cQ
 //call stuff here
 // Adding a click event listener to all elements with a class of "movie"
+/*if(state === "still"){
+        $(this).attr("data-state", "animate");
+        $(this).attr("src", $(this).attr("data-animate"));
+      }else{
+        $(this).attr("data-state", "still");
+        $(this).attr("src", $(this).attr("data-still"));
+      }*/
+
+$("body").on("click", ".pic", function(){
+  var animated = ($(this).attr("data-animate"));
+  if(animated === "false"){
+    $(this).attr("data-animate","true");
+    var temp = $(this).attr("src");
+    $(this).attr("src", $(this).attr("data-switchURL"));
+    $(this).attr("data-switchURL", temp); 
+  }else{
+    $(this).attr("data-animate", "false")
+    var temp = $(this).attr("src");
+    $(this).attr("src", $(this).attr("data-switchURL"));
+    $(this).attr("data-switchURL", temp);
+  }
+});
+
+
+// });
 $(document).on("click", ".gifBtn", displayGifInfo);
 
 // Calling the renderButtons function to display the intial buttons
