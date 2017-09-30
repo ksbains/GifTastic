@@ -18,7 +18,7 @@ var gifs = ["spongebob"];
 function displayGifInfo() {
 
   var gif = $(this).attr("data-name");
-  var api = "http://api.giphy.com/v1/gifs/search";
+  var api = "https://api.giphy.com/v1/gifs/search";
   var apikey = "?api_key=91dfe01af7b44084849de62f68879b83";
   var query = "&q=" + gif + "&limit=10&offset=0&rating=G&lang=en";
   //Q:need to diplay the original still and then upon click diplay the gif and vice vera?
